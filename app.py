@@ -1,10 +1,12 @@
 from datetime import datetime
+import os
 from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_jwt_extended import JWTManager, jwt_required, create_access_token
 from flask_restful import Api, Resource
 from flask_swagger_ui import get_swaggerui_blueprint
 from flask_swagger import swagger
+from dotenv import load_dotenv
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'  # Banco de dados SQLite
@@ -14,6 +16,9 @@ app.config['JWT_SECRET_KEY'] = 'seu_jwt_secret_key_aqui'
 
 db = SQLAlchemy(app)
 jwt = JWTManager(app)
+
+# Carrega as variáveis de ambiente do arquivo .env
+load_dotenv()
 
 # Criar a tabela "user" no banco de dados
 # with app.app_context():
@@ -232,4 +237,7 @@ def swagger_json():
     return jsonify(swag)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    host_x = os.getenv('HOST', '127.0.0.1')
+    port_x=int(os.getenv('PORT', 5000))
+    debug_x=bool(os.getenv('DEBUG', True))
+    app.run(host=host_x, port=port_x, debug=debug_x)
