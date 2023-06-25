@@ -2,6 +2,7 @@
 ## _Demonstration of a Basic DB operations using swagger with JWT authentucation._
 [![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/downloads/release/python-380/)
 [![Python Version](https://img.shields.io/badge/Python-3.8-blue.svg?logo=python)](https://www.python.org/downloads/release/python-380/) [![Docker Images](https://img.shields.io/badge/Docker-Images-blue.svg?logo=docker)](https://www.docker.com/) [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) [![SQLite](https://img.shields.io/badge/SQLite-Database-blue.svg?logo=sqlite)](https://www.sqlite.org/)
+
 Simples projeto de API para demonstração de operações CRUD, com swagger para simples testes e autenticação JWT (Bearer Token).
 Pode ser usado como  start para outros projetos.
 
