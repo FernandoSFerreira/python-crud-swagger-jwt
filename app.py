@@ -8,6 +8,7 @@ from dotenv import load_dotenv
 from controllers.user import UserResource, UserListResource
 from controllers.auth import AuthResource
 from models.database import db
+from seed import create_user
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'  # Banco de dados SQLite
@@ -21,6 +22,7 @@ db.init_app(app)
 @app.before_request
 def create_tables():
     db.create_all()
+    create_user()  # Chama a função para criar o usuário inicial
 
 jwt = JWTManager(app)
 
